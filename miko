@@ -1,0 +1,632 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Miko 🎀</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #ff7eb6;
+    --light: #ffd6e7;
+    --dark: #210d20;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #160d1c;
+    color: white;
+    overflow-x: hidden;
+}
+
+#hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    bottom: -40px;
+    color: #ff8ab8;
+    animation: floatUp linear infinite;
+    opacity: .6;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+    padding: 35px 20px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    animation: appear .8s ease;
+}
+
+.page.active {
+    display: flex;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.small {
+    color: #ffacd0;
+    letter-spacing: 4px;
+    font-size: 12px;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 9vw, 75px);
+    color: #ffafd0;
+    text-shadow: 0 0 25px #ff5fa5;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 6vw, 48px);
+    color: #ffc4dd;
+    margin-bottom: 25px;
+}
+
+p {
+    max-width: 650px;
+    line-height: 2;
+    color: #f8e5ef;
+    font-size: 15px;
+    margin: 12px auto;
+}
+
+.card {
+    width: min(100%, 650px);
+    padding: 35px 25px;
+    border: 1px solid #ffafd044;
+    background: #ffffff0b;
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    box-shadow: 0 0 35px #ff5fa522;
+}
+
+button {
+    border: none;
+    padding: 14px 27px;
+    border-radius: 30px;
+    background: linear-gradient(120deg, #ff6fae, #e9a4ff);
+    color: #291125;
+    font-family: 'Poppins';
+    font-weight: 600;
+    cursor: pointer;
+    margin: 10px;
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px #ff80b8;
+}
+
+.navigation {
+    margin-top: 30px;
+}
+
+.music {
+    background: #ffffff12;
+    color: white;
+    border: 1px solid #ffafd088;
+}
+
+.dots {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #ffffff44;
+    transition: .3s;
+}
+
+.dot.active {
+    background: #ff8fbd;
+    box-shadow: 0 0 12px #ff8fbd;
+}
+
+.poem {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: #ffd1e5;
+    line-height: 2.2;
+}
+
+.sparkle {
+    font-size: 45px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    50% { transform: scale(1.2); }
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 11px;
+    color: #ffafd0;
+    letter-spacing: 2px;
+}
+
+.confetti {
+    position: fixed;
+    top: -15px;
+    z-index: 10;
+    pointer-events: none;
+    animation: fall 4s linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.highlight {
+    color: #ff9fc8;
+    font-weight: 600;
+}
+
+@media(max-width: 480px) {
+    .card { padding: 27px 18px; }
+    p { font-size: 13px; }
+    .poem { font-size: 17px; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<!-- MUSIC -->
+<audio id="senorita" loop></audio>
+<audio id="birthdaySong" loop></audio>
+
+<!-- PAGE 1: WELCOME -->
+<section class="page active" id="page1">
+
+    <div class="sparkle">🎀</div>
+
+    <div class="small">A SPECIAL SURPRISE FOR SOMEONE SPECIAL</div>
+
+    <h1>Hey, Miko!</h1>
+
+    <div class="card">
+        <h2>Something Special Awaits You...</h2>
+
+        <p>
+            Some people make the world a little brighter
+            just by being in it. And today, this little
+            surprise is all about you.
+        </p>
+
+        <p>
+            I prepared something special, so take your
+            time and enjoy every little moment.
+        </p>
+
+        <p class="highlight">Made with love, just for you ♡</p>
+
+        <button onclick="startJourney()">
+            Open Your Surprise ♡
+        </button>
+
+        <br>
+
+        <button class="music" onclick="toggleMusic('senorita',this)">
+            ♫ Play Señorita
+        </button>
+    </div>
+
+    <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <footer>CHAPTER 01 · THE BEGINNING</footer>
+</section>
+
+
+<!-- PAGE 2: BIRTHDAY -->
+<section class="page" id="page2">
+
+    <div class="sparkle">🎂✨</div>
+
+    <div class="small">TODAY IS YOUR DAY</div>
+
+    <h1>Happy Birthday!</h1>
+
+    <div class="card">
+
+        <h2>Happy Birthday, Beautiful Miko! ♡</h2>
+
+        <p>
+            Another year of your beautiful existence,
+            another year of smiles, dreams, and wonderful
+            possibilities.
+        </p>
+
+        <p>
+            I hope this new chapter brings you endless
+            happiness, unforgettable memories, genuine
+            love, and everything your heart wishes for.
+        </p>
+
+        <p class="poem">
+            May your days be filled with light,<br>
+            May your dreams all take their flight,<br>
+            May your smile never fade away,<br>
+            And may happiness find you every day.
+        </p>
+
+        <h2>كل عام وأنتِ بخير يا ميكو! 🎀</h2>
+
+        <p>You deserve all the beautiful things in life.</p>
+
+        <button class="music"
+            onclick="toggleMusic('birthdaySong',this)">
+            ♫ Birthday Music
+        </button>
+
+    </div>
+
+    <div class="navigation">
+        <button onclick="changePage(1)">← Back</button>
+        <button onclick="changePage(3)">Next →</button>
+    </div>
+
+    <footer>CHAPTER 02 · YOUR SPECIAL DAY</footer>
+</section>
+
+
+<!-- PAGE 3: FLIRTING -->
+<section class="page" id="page3">
+
+    <div class="sparkle">💗</div>
+
+    <div class="small">A FEW WORDS FROM MY HEART</div>
+
+    <h2>Can I Tell You Something?</h2>
+
+    <div class="card">
+
+        <p>
+            If beauty were a language, I think you would
+            be its entire dictionary.
+        </p>
+
+        <p>
+            Your smile has a special way of making an
+            ordinary moment feel extraordinary.
+        </p>
+
+        <p>
+            Honestly, I don't think the stars are the
+            prettiest things in the night sky anymore.
+            Someone else has taken that title. ;)
+        </p>
+
+        <p class="poem">
+            If I could send you a thousand flowers,<br>
+            I'd choose the brightest ones for you.<br>
+            If I could give you a thousand wishes,<br>
+            I'd hope every single one comes true.
+        </p>
+
+        <p>
+            And here's a little confession:
+            Your name is becoming one of my favorite
+            things to see on my screen. ♡
+        </p>
+
+        <p class="highlight">
+            You're not just pretty. You're unforgettable.
+        </p>
+
+    </div>
+
+    <div class="navigation">
+        <button onclick="changePage(2)">← Back</button>
+        <button onclick="changePage(4)">Next →</button>
+    </div>
+
+    <footer>CHAPTER 03 · A LITTLE FLIRTING</footer>
+</section>
+
+
+<!-- PAGE 4: THANK YOU -->
+<section class="page" id="page4">
+
+    <div class="sparkle">🌷</div>
+
+    <div class="small">SOMETHING I WANT YOU TO KNOW</div>
+
+    <h2>Thank You, Miko ♡</h2>
+
+    <div class="card">
+
+        <p>
+            Thank you for being the person you are.
+            Thank you for your kindness, your presence,
+            and all the little things that make you special.
+        </p>
+
+        <p>
+            I appreciate every conversation, every laugh,
+            and every moment that made me smile.
+        </p>
+
+        <p>
+            Maybe you don't always realize how wonderful
+            you are, but I hope you never underestimate
+            your own worth.
+        </p>
+
+        <p class="poem">
+            Some people are like flowers in spring,<br>
+            Bringing warmth to everything.<br>
+            And some, without even trying to shine,<br>
+            Make ordinary moments feel divine.
+        </p>
+
+        <p class="highlight">
+            Thank you for being you. Never change your
+            beautiful heart just to please the world.
+        </p>
+
+    </div>
+
+    <div class="navigation">
+        <button onclick="changePage(3)">← Back</button>
+        <button onclick="changePage(5)">Next →</button>
+    </div>
+
+    <footer>CHAPTER 04 · WITH GRATITUDE</footer>
+</section>
+
+
+<!-- PAGE 5: WISHES -->
+<section class="page" id="page5">
+
+    <div class="sparkle">🦋</div>
+
+    <div class="small">A LETTER TO YOUR FUTURE SELF</div>
+
+    <h2>My Wishes For You</h2>
+
+    <div class="card">
+
+        <p>
+            Always believe in yourself, even when things
+            get difficult. You are capable of more than
+            you sometimes imagine.
+        </p>
+
+        <p>
+            Never let anyone convince you that you aren't
+            enough. Your worth doesn't depend on anyone's
+            opinion.
+        </p>
+
+        <p>
+            Protect your peace, take care of your heart,
+            and don't be afraid to walk away from anything
+            that makes you unhappy.
+        </p>
+
+        <p>
+            Chase your dreams, explore the world, make
+            beautiful memories, and never stop discovering
+            the person you want to become.
+        </p>
+
+        <p class="poem">
+            May life be gentle with your soul,<br>
+            May every dream become your goal,<br>
+            May every sunrise bring you cheer,<br>
+            And may you have your best year.
+        </p>
+
+        <h2>Happy Birthday Again, Miko! 🎀</h2>
+
+        <p>
+            I hope you always have a reason to smile.
+            You deserve a life full of beautiful surprises.
+        </p>
+
+        <p class="highlight">
+            Stay beautiful. Stay happy. Stay YOU. ♡
+        </p>
+
+        <div class="sparkle">💖✨🎂</div>
+
+        <button onclick="changePage(1)">
+            Read It Again ♡
+        </button>
+
+    </div>
+
+    <footer>CHAPTER 05 · ALWAYS WISHING YOU THE BEST</footer>
+</section>
+
+
+<script>
+
+// =====================================
+// MUSIC LINKS
+// Replace these with direct MP3 URLs.
+// =====================================
+
+const senoritaURL = "PASTE_SENORITA_MP3_URL_HERE";
+const birthdayURL = "PASTE_BIRTHDAY_MP3_URL_HERE";
+
+document.getElementById("senorita").src = senoritaURL;
+document.getElementById("birthdaySong").src = birthdayURL;
+
+
+// =====================================
+// PAGE NAVIGATION
+// =====================================
+
+let currentPage = 1;
+
+function changePage(number) {
+
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById("page" + number)
+        .classList.add("active");
+
+    document.querySelectorAll(".dot").forEach((dot, i) => {
+        dot.classList.toggle("active", i === number - 1);
+    });
+
+    currentPage = number;
+
+    window.scrollTo({top: 0, behavior: "smooth"});
+
+    if(number === 2) {
+        confetti();
+    }
+}
+
+
+// =====================================
+// START JOURNEY
+// =====================================
+
+function startJourney() {
+
+    const music = document.getElementById("senorita");
+
+    music.play().catch(() => {});
+
+    changePage(2);
+
+    confetti();
+}
+
+
+// =====================================
+// MUSIC PLAYER
+// =====================================
+
+function toggleMusic(id, button) {
+
+    const audio = document.getElementById(id);
+
+    if(audio.paused) {
+
+        document.querySelectorAll("audio").forEach(a => {
+            a.pause();
+        });
+
+        audio.play().then(() => {
+            button.textContent = "♫ Pause Music";
+        }).catch(() => {
+            alert("Please check your music link.");
+        });
+
+    } else {
+
+        audio.pause();
+        button.textContent = "♫ Play Music";
+    }
+}
+
+
+// =====================================
+// FLOATING HEARTS
+// =====================================
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.innerHTML = ["♡", "♥", "💗", "✨"][Math.floor(Math.random()*4)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (12 + Math.random() * 23) + "px";
+    heart.style.animationDuration = (5 + Math.random() * 7) + "s";
+
+    document.getElementById("hearts").appendChild(heart);
+
+    setTimeout(() => heart.remove(), 12000);
+}
+
+setInterval(createHeart, 400);
+
+
+// =====================================
+// CONFETTI EFFECT
+// =====================================
+
+function confetti() {
+
+    const symbols = ["💗", "✨", "🎀", "🌸", "💕", "🎉"];
+
+    for(let i = 0; i < 55; i++) {
+
+        const piece = document.createElement("div");
+
+        piece.className = "confetti";
+        piece.innerHTML = symbols[Math.floor(Math.random()*symbols.length)];
+
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.fontSize = (12 + Math.random()*20) + "px";
+        piece.style.animationDuration = (2 + Math.random()*3) + "s";
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => piece.remove(), 5000);
+    }
+}
+
+</script>
+
+</body>
+</html>
